@@ -7,7 +7,7 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		double salario, servicos, capital, medicos, educacao, impSalario, impServicos, impCapital;
+		double salario, servicos, capital, medicos, educacao, impSalario, impServicos, impCapital, maxDedutivel, gastoDedutivel;
 		
 		
 		//Leitura dos dados
@@ -39,9 +39,20 @@ public class programa {
 		System.out.println();
 		System.out.println("RELATÓRIO DE IMPOSTO DE RENDA");
 		System.out.println();
+		System.out.println("CONSOLIDADO DE RENDA:");
 		System.out.println("Imposto sobre salário: " + impSalario);
 		System.out.println("Imposto sobre serviços: " + impServicos);
 		System.out.println("Imposto sobre ganho de capital: " + impCapital);
+		
+		//Deducoes
+		
+		maxDedutivel = (impCapital + impSalario + impServicos) * 0.3;
+		gastoDedutivel = medicos + educacao;
+				
+		System.out.println();
+		System.out.println("DEDUÇÕES:");
+		System.out.println("Máximo dedutível: " + maxDedutivel);
+		System.out.println("Gastos dedutíveis: " + gastoDedutivel);
 		
 		sc.close();
 	}
