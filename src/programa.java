@@ -7,7 +7,7 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int escolaridade, experiencia, ptsEscolaridade = 0, ptsExperiencia;
+		int escolaridade, experiencia, ptsEscolaridade = 0, ptsExperiencia, analista = 0, gerente = 0, assistente = 0;
 		char viagem, cnh;
 		
 		System.out.println("Qual sua escolaridade?");
@@ -49,6 +49,35 @@ public class programa {
 		System.out.println();
 		System.out.println("Pontos por escolaridade: " + ptsEscolaridade);
 		System.out.println("Pontos por experiência: " + ptsExperiencia);
+		System.out.println();
+		
+			
+		if(escolaridade >= 2 && (cnh == 's' || cnh == 'S')) {
+			assistente = 1;
+		}
+		if(escolaridade >= 3 && experiencia > 2) {
+			gerente = 1; 
+		}
+		if(escolaridade >= 3 && experiencia > 5 && (viagem == 's' || viagem == 'S')) {
+			analista = 1;
+		}
+		if((assistente + gerente + analista) == 0 ) {
+			System.out.println("Infelizmente seu perfil não atende a empresa");
+		} else {
+			
+			System.out.println("Você está habilitado para o(s) seguinte(s) cargo(s):");
+		
+		if(assistente == 1) {
+			System.out.println("ASSISTENTE");
+		}
+		if(gerente == 1) {
+			System.out.println("GERENTE");
+		}
+		if(analista == 1) {
+			System.out.println("ANALISTA");
+		}
+		}
+		
 		
 		sc.close();
 	}
