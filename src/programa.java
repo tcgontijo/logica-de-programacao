@@ -7,7 +7,7 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		int qtdCompras, inadimplencia, scoreCompras, scoreInadimplencia = 0, scoreFormaPagto = 0;
+		int qtdCompras, inadimplencia, scoreCompras, scoreInadimplencia = 0, scoreFormaPagto = 0, soma;
 		double ticket;
 		char formaPagto;
 
@@ -44,7 +44,7 @@ public class programa {
 		
 		if(inadimplencia > 1 || qtdCompras == 0) {
 			scoreInadimplencia = 0;
-		} else if(qtdCompras > 0 && inadimplencia >= 1) {
+		} else if(qtdCompras > 0 && inadimplencia == 1) {
 			scoreInadimplencia = 15;
 		} else if(qtdCompras > 0 && inadimplencia == 0){
 			scoreInadimplencia = 30;
@@ -61,7 +61,8 @@ public class programa {
 		System.out.println("Score de inadimplência = " + scoreInadimplencia + " pontos");
 		System.out.println("Score de forma de pagamento = " + scoreFormaPagto + " pontos");
 		
-						
+
+								
 		sc.close();
 	}
 
