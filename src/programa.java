@@ -7,7 +7,7 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		int qtdCompras, inadimplencia;
+		int qtdCompras, inadimplencia, scoreCompras;
 		double ticket;
 		char formaPagto;
 
@@ -27,6 +27,19 @@ public class programa {
 		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
 		formaPagto = sc.next().charAt(0);
 		
+		if(qtdCompras == 0) {
+			scoreCompras = 0;
+		} else if(qtdCompras > 2 && ticket <= 3000.00) {
+			scoreCompras = 40;
+		} else if(ticket <= 3000.00) {
+			scoreCompras = 20;
+		} else {
+			scoreCompras = 60;
+		}
+		
+		System.out.println();
+		System.out.print("Score de volume de compras = " + scoreCompras + " pontos");
+						
 		sc.close();
 	}
 
