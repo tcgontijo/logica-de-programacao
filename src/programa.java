@@ -7,7 +7,7 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		int qtdCompras, inadimplencia, scoreCompras, scoreInadimplencia = 0, scoreFormaPagto = 0, soma;
+		int qtdCompras, inadimplencia, scoreCompras, scoreInadimplencia = 0, scoreFormaPagto = 0;
 		double ticket;
 		char formaPagto;
 
@@ -61,7 +61,6 @@ public class programa {
 		System.out.println("Score de inadimplência = " + scoreInadimplencia + " pontos");
 		System.out.println("Score de forma de pagamento = " + scoreFormaPagto + " pontos");
 		
-
 								
 		sc.close();
 	}
