@@ -7,7 +7,7 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		float largura = 0;
+		float largura = 0, altura = 0;
 
 		System.out.print("Digite a largura do retangulo: ");
 
@@ -18,6 +18,15 @@ public class programa {
 			}
 		}
 
+		System.out.print("Digite a altura do retangulo: ");
+
+		while (altura < 1) {
+			altura = sc.nextFloat();
+			if (altura < 1) {
+				System.out.print("O valor deve ser positivo. Tente novamente: ");
+			}
+		}
+		sc.close();
 	}
 
 }
