@@ -22,6 +22,23 @@ public class programa {
 			salario = sc.nextDouble();
 		}
 		
+		double nPrestacoes, pEntrada, valorFinan, prestacao;
+		
+		System.out.print("Numero de prestacoes: ");
+		nPrestacoes = sc.nextDouble();
+		System.out.print("Porcentagem de entrada: ");
+		pEntrada = sc.nextDouble();
+		
+		
+		do {
+			System.out.print("Valor total financiado: ");
+			valorFinan = sc.nextDouble();
+			prestacao = (valorFinan - (valorFinan * (pEntrada / 100.00))) / nPrestacoes;
+			if(prestacao > (salario * 0.30)) {
+				System.out.println("\nA PRESTACAO NAO PODE SER MAIOR DO QUE 30% DO SALARIO!\n");
+			}	
+			} while (prestacao > (salario * 0.30));		
+		sc.close();
 	}
 
 }
