@@ -12,20 +12,17 @@ public class programa {
 				
 		System.out.println("DIGITE OS DADOS DO FINANCIAMENTO");
 		System.out.print("Nome do cliente: ");
-		nome = sc.next();
-		System.out.print("Salario: ");
-		salario = sc.nextDouble();
-		
-		while (salario < 0) {
-			System.out.println("\nO SALARIO DEVE SER MAIOR QUE ZERO!\n");
+		nome = sc.nextLine();
+		do {
 			System.out.print("Salario: ");
 			salario = sc.nextDouble();
-		}
+		} while (salario < 0);
 		
-		double nPrestacoes, pEntrada, valorFinan, prestacao;
+		int nPrestacoes;
+		double pEntrada, valorFinan, prestacao;
 		
 		System.out.print("Numero de prestacoes: ");
-		nPrestacoes = sc.nextDouble();
+		nPrestacoes = sc.nextInt();
 		System.out.print("Porcentagem de entrada: ");
 		pEntrada = sc.nextDouble();
 		
@@ -34,10 +31,31 @@ public class programa {
 			System.out.print("Valor total financiado: ");
 			valorFinan = sc.nextDouble();
 			prestacao = (valorFinan - (valorFinan * (pEntrada / 100.00))) / nPrestacoes;
-			if(prestacao > (salario * 0.30)) {
-				System.out.println("\nA PRESTACAO NAO PODE SER MAIOR DO QUE 30% DO SALARIO!\n");
-			}	
 			} while (prestacao > (salario * 0.30));		
+		
+		int opcao;
+		do {
+			System.out.println("\nMENU:");
+			System.out.println("1 - Mostrar valor da entrada");
+			System.out.println("2 - Mostrar o valor financiado");
+			System.out.println("3 - Mostrar valor de cada prestação");
+			System.out.println("4 - Sair");
+			System.out.print("Digite uma opcao: ");
+			opcao = sc.nextInt();
+		
+		if(opcao == 1) {
+			System.out.printf("\nENTRADA = R$ %.2f%n" , (valorFinan * (pEntrada / 100.00)));
+		} else if (opcao == 2) {
+			System.out.printf("\nVALOR FINANCIADO = R$ %.2f%n" , valorFinan - (valorFinan * (pEntrada / 100.00)));
+		} else if (opcao == 3) {
+			System.out.printf("\nVALOR DE CADA PRESTACAO = R$ %.2f%n", prestacao);
+		} else if (opcao == 4) {
+			System.out.println("\nFIM DO PROGRAMA!");
+		} else {
+			System.out.println("\nDIGITE UMA OPCAO VALIDA!");
+		}
+		} while(opcao != 4);
+		
 		sc.close();
 	}
 
