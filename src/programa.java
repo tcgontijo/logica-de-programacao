@@ -35,6 +35,21 @@ public class programa {
 		rep = sc.next().charAt(0);
 		} while (rep == 's' || rep == 'S');
 		
+		int opcao;
+		do {
+		System.out.println();
+		System.out.println("MENU");
+		System.out.println("1 - Total de horas trabalhadas");
+		System.out.println("2 - Custo total");
+		System.out.println("3 - Nome da pessoa que ganhou mais");
+		System.out.println("4 - Sair");
+		System.out.print("Digite uma opção: ");
+		opcao = sc.nextInt();
+		
+		} while(opcao != 4);
+		
+		
+		
 		
 		sc.close();
 	}
