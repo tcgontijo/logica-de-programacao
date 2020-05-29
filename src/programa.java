@@ -9,8 +9,8 @@ public class programa {
 		
 		String nome;
 		char rep;
-		int horas;
-		double valorHora;
+		int horas, somaHoras = 0;
+		double valorHora, somaValor = 0;
 		
 		do {	
 		System.out.print("Nome: ");
@@ -22,14 +22,17 @@ public class programa {
 			System.out.print("Insera um valor positivo para Horas trabalhadas: ");
 			horas = sc.nextInt();
 		}
+		somaHoras = somaHoras + horas;
 		
 		System.out.print("Valor por hora: ");
 		valorHora = sc.nextDouble();
+		
 		
 		while(valorHora <= 0) {
 			System.out.print("Insera um valor positivo para Valor por hora: ");
 			valorHora = sc.nextDouble();
 		}
+		somaValor = somaValor + valorHora;
 		
 		System.out.print("Digitar outro (S/N)?");
 		rep = sc.next().charAt(0);
@@ -46,9 +49,16 @@ public class programa {
 		System.out.print("Digite uma opção: ");
 		opcao = sc.nextInt();
 		
+		if(opcao == 1) {
+			System.out.println();
+			System.out.println("Total de horas = " + somaHoras);
+		} else if (opcao == 2) {
+			System.out.println();
+			System.out.printf("Custo total = R$ %.2f%n", somaValor);
+		} else {
+		}
+		
 		} while(opcao != 4);
-		
-		
 		
 		
 		sc.close();
