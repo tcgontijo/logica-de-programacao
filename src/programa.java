@@ -7,10 +7,10 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		String nome;
+		String nome, maisRico = "a";
 		char rep;
 		int horas, somaHoras = 0;
-		double valorHora, somaValor = 0;
+		double valorHora, somaValor = 0, salario, maiorSalario = 0;
 		
 		do {	
 		System.out.print("Nome: ");
@@ -32,7 +32,16 @@ public class programa {
 			System.out.print("Insera um valor positivo para Valor por hora: ");
 			valorHora = sc.nextDouble();
 		}
-		somaValor = somaValor + valorHora;
+		
+		
+		salario = valorHora * horas;
+		
+		somaValor = somaValor + salario;
+		
+		if(salario > maiorSalario) {
+			maiorSalario = salario;
+			maisRico = nome;
+		}
 		
 		System.out.print("Digitar outro (S/N)?");
 		rep = sc.next().charAt(0);
@@ -55,12 +64,15 @@ public class programa {
 		} else if (opcao == 2) {
 			System.out.println();
 			System.out.printf("Custo total = R$ %.2f%n", somaValor);
-		} else {
+		} else if (opcao == 3) {
+			System.out.println();
+			System.out.println("Pessoa que ganhou mais: " + maisRico);
 		}
 		
 		} while(opcao != 4);
 		
-		
+		System.out.println();
+		System.out.println("FIM DO PROGRAMA!");
 		sc.close();
 	}
 
